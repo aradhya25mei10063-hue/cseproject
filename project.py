@@ -5,7 +5,7 @@ print("Vehicle Fuel and Maintenance Tracker")
 
 #basic data
 vehiclename = input("Vehicle name and model: ")
-vehicletype = input("Vehicle type (Car/Bike/etc.): ")
+vehicletype = input("Vehicle type (Car/Bike/etc): ")
 fuelcapacity = float(input("Fuel tank capacity (liters): "))
 lastmaintenance = input("Last maintenance date (YYYY-MM-DD): ")
 
@@ -22,12 +22,12 @@ effhistory = []      # to store efficiency of each trip
 
 #main menu loop
 while True:
-    print("\nMenu:")
-    print("1. Add Trip")
-    print("2. Check Fuel Efficiency")
-    print("3. Maintenance Status")
-    print("4. Fuel Efficiency Chart")
-    print("5. Exit")
+    print("Menu:")
+    print("1.Add Trip")
+    print("2.Check Fuel Efficiency")
+    print("3.Maintenance Status")
+    print("4.Fuel Efficiency Chart")
+    print("5.Exit")
 
     choice = input("Choose (1-5): ")
 
@@ -41,7 +41,7 @@ while True:
             print(f"Trip Efficiency: {efficiency} km/l")
             effhistory.append(efficiency)
         else:
-            print("Fuel used must be greater than 0.")
+            print("Fuel used must be greater than 0")
             continue
 
         totaldistance += distance
@@ -51,7 +51,7 @@ while True:
     elif choice == "2":
         if totalfuel > 0:
             avg = totaldistance / totalfuel
-            print(f"Overall Efficiency: {avg:.2f} km/l")
+            print(f"Overall Efficiency: {avg:} km/l")
         else:
             print("No trip data recorded yet.")
 
@@ -75,7 +75,7 @@ while True:
         else:
             trips = list(range(1, len(effhistory) + 1))
             plt.plot(trips, effhistory, marker='o')
-            plt.xlabel("Trip No.")
+            plt.xlabel("Trip Number")
             plt.ylabel("Efficiency (km/l)")
             plt.title("Fuel Efficiency Chart")
             plt.grid(True)
@@ -83,8 +83,9 @@ while True:
 
     #exit
     elif choice == "5":
-        print("Exiting program.")
+        print("Exiting program")
         break
 
     else:
-        print("Invalid option.")
+
+        print("Invalid option")
