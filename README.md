@@ -1,126 +1,56 @@
-# cseproject
-Vityarthi Project
+Vehicle Fuel and Maintenance TrackerThis is a simple command-line Python program designed to help you track your vehicle's fuel consumption, calculate efficiency, and monitor maintenance schedules.✨ 
 
-Introduction: 
-This project is a Python-based application designed 
-to help vehicle owners track fuel efficiency and 
-maintenance schedules. It provides an interactive 
-menu to add trip data, calculate fuel efficiency, 
-monitor maintenance dates, and visualize fuel 
-efficiency trends over multiple trips. 
-Problem Statement: 
-Vehicle owners often find it difficult to manually 
-track fuel usage and maintenance schedules. This 
-project aims to automate and simplify these tasks, 
-helping users maintain their vehicles efficiently and 
-economically. 
+Features:
+Trip Logging: Record the distance traveled and fuel used for each trip.
+Fuel Efficiency: Calculates and displays the fuel efficiency for individual trips and the overall average efficiency.
+Maintenance Tracking: Based on the last maintenance date, it calculates and shows the Next Due Date (assuming a 180-day interval) and the Days Remaining.
+Data Visualization: Generates a Fuel Efficiency Chart using matplotlib to visualize the efficiency over recorded trips.
+Error Handling: Includes basic date validation for the maintenance input.
 
+Prerequisites:
+To run this script, you need to have Python 3 installed, along with the following libraries:
+datetime: Used for handling dates and calculating maintenance status (Standard library - no installation needed).
+matplotlib: Used for generating the fuel efficiency chart.
 
-Functional Requirements: 
-Input vehicle details and last maintenance date. 
-Add trip records with distance and fuel used. 
-Calculate and display trip-specific and overall 
-fuel efficiency. 
-Track maintenance due date based on last 
-maintenance. 
-Generate a graph displaying fuel efficiency 
-trends across trips. 
-Provide a user-friendly menu for ease of 
-operation 
+How to Run:
+1. Save the code below into a Python file such as tracker.py
+2. open in your terminal or command line 
+3. change into the directory you've saved the file in. 
+4. Run the script : Bashpython tracker.py
 
+Initial Setup:
+The first time you run the script, it will ask you for initial vehicle details:    
+including:
+Vehicle name and model
+Vehicle type - Car/Bike/etc.
+Fuel tank capacity (in liters)
+Last maintenance date (in the format YYYY-MM-DD)
 
-Non-functional Requirements: 
-The program should validate inputs, such as 
-dates and numerical values. 
-It must run in any standard Python 3 
-environment with matplotlib installed. 
-The interface is text-based for simplicity and 
-compatibility. 
-The system should handle errors gracefully 
+Main Menu:
+Once set up, the Menu will display, prompting you to select an action (1-5):
+1.Add Trip: You can record the distance and fuel used for a new journey.
+2.Check Fuel Efficiency: The overall average fuel efficiency in km/l will be displayed.
+3.Maintenance Status: The last maintenance date, the next due date, and the days remaining will be displayed.
+4.Fuel Efficiency Chart: A line chart displaying the efficiency history of your recorded trips will be shown.
+5.Exit: The program will terminate. 
 
+Code Overview:
+Global Variables
+vehiclename, vehicletype, fuelcapacity: These store the initial data about the vehicle. 
+lastmaintdate: This holds the last maintenance date as a datetime.date object.
+totaldistance, totalfuel: These variables accumulate the overall distance traveled and fuel consumed.
+effhistory: This is a list to store the fuel efficiency in km/l of every trip recorded.
 
-System Architecture: 
-The system follows a simple interactive loop 
-architecture, where user input drives the flow. 
-Core components include: 
-Data input and validation 
-Computation of efficiency 
-Maintenance date calculations 
-Data visualization with matplotlib
+Key Logic:
+1. Add Trip Records new distance and fuel data. eff = distance / fuelused
+2. Check Fuel EfficiencyCalculates the average efficiency. avg = totaldistance / totalfuel
+3. Maintenance StatusComputes next maintenance due date. datetime.timedelta(days=180)
+4. Fuel Efficiency ChartPlots efficiency data. matplotlib.pyplot (plt)
 
-Design Decisions & Rationale: 
-Chose a command-line interface for simplicity 
-and portability. 
-Used datetime for date validation and 
-maintenance checks. 
-Employed matplotlib for visual representation of 
-efficiency trends. 
-Input validation avoids crashes from invalid data 
-entries. 
-
-
-Implementation Details:  
-The program starts by collecting vehicle 
-information and validating the last maintenance 
-date. 
-Users input trip distances and fuel 
-consumption; trip efficiency is calculated and 
-stored. 
-Overall fuel efficiency is computed 
-cumulatively.  
-Maintenance status is assessed by calculating 
-days left until the next scheduled maintenance 
-(180 days from last maintenance date). 
-Fuel efficiency trends are displayed graphically 
-using matplotlib 
-
-
-Testing Approach: 
-Tested with valid and invalid dates for last 
-maintenance. 
-Tested trip input with both normal and boundary 
-values (e.g., zero fuel used).  
-Verified calculations for trip and overall 
-efficiency. 
-Tested maintenance status for overdue and not 
-overdue conditions. 
-Confirmed chart displays accurately with 
-multiple trip data.
-
-
-Challenges Faced: 
-Handling invalid date entries and other invalid 
-inputs without program termination. 
-Ensuring graphical output works across different 
-platforms. 
-Managing cumulative calculations correctly as 
-new trips are added 
-
-
-Learnings & Key Takeaways:  
-Practical experience with Python input 
-validation using exceptions. 
-Hands-on use of datetime for scheduling 
-calculations. 
-Introduction to data visualization 
-with matplotlib. 
-Importance of user-friendly menu-driven 
-program design
-
-
-Future Enhancements: 
-Adding persistent storage (e.g., file or database) to 
-save trip and maintenance data. 
-Extending to support multiple vehicles. 
-Incorporating alerts/notifications for upcoming 
-maintenance. 
-Creating a graphical user interface (GUI) for 
-improved usability 
-
-
-References:  
-Official Python Documentation: datetime and 
-input handling. 
-Matplotlib Documentation for plotting graphs. 
-Online tutorials for building menu-based Python 
-applications.
+Example Workflow:
+1.Start the program.
+2.Input vehicle details like Vehicle name and model: Honda Civic, Last maintenance date: 2025-05-01.
+3.Choose 1. Add Trip. 
+4.Input: Distance travelled: 350, Fuel used : 20. - Output is Trip Efficiency: 17.5 km/l.
+5.Choose 3. Maintenance Status. - Output is Next Due date is 180 days after 2025-05-01 
+6.Choose 4. Fuel Efficiency Chart to view the graph for the single trip.
