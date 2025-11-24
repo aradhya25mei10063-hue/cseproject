@@ -54,3 +54,11 @@ Example Workflow:
 4.Input: Distance travelled: 350, Fuel used : 20. - Output is Trip Efficiency: 17.5 km/l.
 5.Choose 3. Maintenance Status. - Output is Next Due date is 180 days after 2025-05-01 
 6.Choose 4. Fuel Efficiency Chart to view the graph for the single trip.
+
+
+output screenshot:
+<img width="1416" height="866" alt="image" src="https://github.com/user-attachments/assets/6a075361-22fe-494d-960c-d968cbfe4ce7" />
+
+flowchart:
+<img width="885" height="792" alt="image" src="https://github.com/user-attachments/assets/8585464f-bfbc-4fda-b429-454aa0fb07c7" />
+
